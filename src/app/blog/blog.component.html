@@ -1,0 +1,12 @@
+<h2>Blog:</h2>
+<ul>
+  <app-post-list-component
+    *ngFor="let post of posts
+    let i = index"
+    [index]="i"
+    [postTitle]="post.title"
+    [postContent]="post.content"
+    [likes]="post.likes"
+    [lastUpdate]="post.lastUpdate">
+  </app-post-list-component>
+</ul>
