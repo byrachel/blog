@@ -3,8 +3,9 @@
   <h4 [ngStyle]="{color: addColor()}">{{ postTitle }}</h4>
   <p>{{ lastUpdate | date }}</p>
   <p><strong>{{ postContent }}</strong></p>
+  <a [routerLink]="[id]">En savoir plus</a>
+  <br/>
   <p>Nombre de likes : {{ likes }}</p>
-  <p *ngIf="status === true">favori</p>
   <button (click)="addLikes()" >J'aime</button>
   <button (click)="dislike()">J'aime pas</button>
 

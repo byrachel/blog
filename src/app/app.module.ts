@@ -10,6 +10,8 @@ import { AuthComponent } from './auth/auth.component';
 import { BlogComponent } from './blog/blog.component';
 import { Routes, RouterModule } from '@angular/router'
 import { AuthService } from './services/auth.service';
+import { SinglepostComponent } from './singlepost/singlepost.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 const appRoutes: Routes = [
   {
@@ -19,6 +21,18 @@ const appRoutes: Routes = [
   {
     path: 'auth',
     component: AuthComponent
+  },
+  {
+    path: 'blog/:id',
+    component: SinglepostComponent
+  },
+  {
+    path: 'notfound',
+    component: FourOhFourComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/notfound'
   },
   {
     path: '',
@@ -32,7 +46,9 @@ const appRoutes: Routes = [
     PostListComponentComponent,
     PostListItemsComponentComponent,
     AuthComponent,
-    BlogComponent
+    BlogComponent,
+    SinglepostComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,

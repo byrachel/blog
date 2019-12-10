@@ -14,6 +14,7 @@ export class PostListComponentComponent {
   @Input() lastUpdate: string;
   @Input() index: number;
   @Input() status: boolean;
+  @Input() id: number;
 
   addLikes() {
     this.likes ++
