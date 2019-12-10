@@ -10,6 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { BlogComponent } from './blog/blog.component';
 import { Routes, RouterModule } from '@angular/router'
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 import { SinglepostComponent } from './singlepost/singlepost.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'blog/:id',
+    canActivate: [AuthGuard],
     component: SinglepostComponent
   },
   {
@@ -55,7 +57,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [DonneesService, AuthService],
+  providers: [DonneesService, AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
