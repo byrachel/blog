@@ -1,0 +1,25 @@
+<div class="col-sm-8 col-sm-offset-2">
+    <h2 class="display-4 text-center text-muted">Créer un utilisateur:</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+        <div class="form-group">
+        <label for="firstName">Prénom</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName">
+        </div>
+        <div class="form-group">
+        <label for="lastName">Nom</label>
+        <input type="text" id="lastName" class="form-control" formControlName="lastName">
+        </div>
+        <div class="form-group">
+        <label for="email">Adresse e-mail</label>
+        <input type="text" id="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group">
+        <label for="coursePreference">Quel type de formation préférez-vous ?</label>
+        <select id="coursePreference" class="form-control" formControlName="coursePreference">
+            <option value="coding">Coding</option>
+            <option value="autre">Autre</option>
+        </select>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Soumettre</button>
+    </form>
+</div>
