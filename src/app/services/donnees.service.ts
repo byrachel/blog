@@ -46,7 +46,7 @@ export class DonneesService {
     return post;
   }
 
-  addPost(title:string, category:string) {
+  addPost(title:string, content:string, category:string) {
     const postObject = {
       id: 0,
       title: '',
@@ -57,6 +57,7 @@ export class DonneesService {
       lastUpdate: this.lastUpdate
     };
     postObject.title = title;
+    postObject.content = content;
     postObject.category = category;
     postObject.id = this.posts[(this.posts.length - 1)].id +1;
     this.posts.push(postObject);

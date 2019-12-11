@@ -19,8 +19,9 @@ export class EditPostComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const title = form.value['title'];
+    const content = form.value['content'];
     const category = form.value['category'];
-    this.donneesService.addPost(title,category);
+    this.donneesService.addPost(title,content,category);
     this.router.navigate(['/blog']);
   }
 

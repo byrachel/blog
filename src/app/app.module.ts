@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PostListComponentComponent } from './post-list-component/post-list-component.component';
 import { PostListItemsComponentComponent } from './post-list-items-component/post-list-items-component.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DonneesService } from './services/donnees.service';
+import { UserService } from './services/user.service';
 import { AuthComponent } from './auth/auth.component';
 import { BlogComponent } from './blog/blog.component';
 import { Routes, RouterModule } from '@angular/router'
@@ -14,6 +15,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { SinglepostComponent } from './singlepost/singlepost.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +30,10 @@ const appRoutes: Routes = [
     path: 'blog/:id',
     canActivate: [AuthGuard],
     component: SinglepostComponent
+  },
+  {
+    path: 'users',
+    component: UserListComponent
   },
   {
     path: 'notfound',
@@ -57,14 +63,16 @@ const appRoutes: Routes = [
     BlogComponent,
     SinglepostComponent,
     FourOhFourComponent,
-    EditPostComponent
+    EditPostComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [DonneesService, AuthService,AuthGuard],
+  providers: [DonneesService, AuthService, UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
