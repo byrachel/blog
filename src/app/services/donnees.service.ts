@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DonneesService {
 
   lastUpdate = new Date();
@@ -36,6 +39,8 @@ export class DonneesService {
       category: 'coding'
     }
   ];
+
+  constructor (private httpClient : HttpClient) {}
     
   getPostById(id: number) {
     const post = this.posts.find(
@@ -64,6 +69,32 @@ export class DonneesService {
 
   }
 
+    savePostToServer() {
+      this.httpClient
+      .put('https://http-client-demo-c59a6.firebaseio.com/posts.json', this.posts)
+      .subscribe(
+        () => {
+          console.log('ok');
+      },
+        (error) => {
+          console.log( error );
+        }
+      )
+    }
+
+    getPostFromServer() {
+      this.httpClient
+      .get<any[]>('https://http-client-demo-c59a6.firebaseio.com/posts.json')
+      .subscribe(
+        (response) => {
+          this.posts = response;
+          
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
   }
 
 

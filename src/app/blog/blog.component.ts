@@ -18,4 +18,14 @@ export class BlogComponent implements OnInit {
     this.posts = this.donneesService.posts;
   }
 
+  onSave() {
+    this.donneesService.savePostToServer();
+  }
+
+  onFetch() {
+    this.donneesService.getPostFromServer();
+  }
+  onFetch() {
+    this.donneesService.getPostFromServer();
+}
 }
