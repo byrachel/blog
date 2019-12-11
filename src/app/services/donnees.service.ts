@@ -14,7 +14,8 @@ export class DonneesService {
       content: 'Formation en 5 modules faciles',
       likes: 5,
       lastUpdate: this.lastUpdate,
-      status: true
+      status: true,
+      category: 'coding'
     },
     {
       id: 2,
@@ -22,7 +23,8 @@ export class DonneesService {
       content: 'Les bases avant de débuter Angular ou React',
       likes: 10,
       lastUpdate: this.lastUpdate,
-      status: false
+      status: false,
+      category: 'coding'
     },
     {
       id: 3,
@@ -30,7 +32,8 @@ export class DonneesService {
       content: 'Formation en 10 modules.',
       likes: 0,
       lastUpdate: this.lastUpdate,
-      status: false
+      status: false,
+      category: 'coding'
     }
   ];
     
@@ -41,7 +44,24 @@ export class DonneesService {
       }
     );
     return post;
-}
+  }
+
+  addPost(title:string, category:string) {
+    const postObject = {
+      id: 0,
+      title: '',
+      category: '',
+      content: '',
+      likes: 0,
+      status: false,
+      lastUpdate: this.lastUpdate
+    };
+    postObject.title = title;
+    postObject.category = category;
+    postObject.id = this.posts[(this.posts.length - 1)].id +1;
+    this.posts.push(postObject);
+
+  }
 
   }
 

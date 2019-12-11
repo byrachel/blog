@@ -1,15 +1,21 @@
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
-      <li routerLinkActive="active"><a routerLink="blog">Blog</a></li>
-    </ul>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <p class="nav-item nav-link">Site Test @angular</p>
+        <li routerLinkActive="active" class="nav-item nav-link"><a routerLink="auth">Se connecter</a></li>
+        <li routerLinkActive="active" class="nav-item nav-link"><a routerLink="blog">Blog</a></li>
+        <li routerLinkActive="active" class="nav-item nav-link"><a routerLink="edit">Edit</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <div class="container">
-  <div class="row">
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 </div>
+
+<br />
+<div class="container">Vous êtes connecté depuis {{ secondes }} secondes.</div>

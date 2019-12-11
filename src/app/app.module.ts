@@ -13,6 +13,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { SinglepostComponent } from './singlepost/singlepost.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 const appRoutes: Routes = [
   {
@@ -33,12 +34,17 @@ const appRoutes: Routes = [
     component: FourOhFourComponent
   },
   {
-    path: '**',
-    redirectTo: '/notfound'
+    path: 'edit',
+    canActivate: [AuthGuard],
+    component: EditPostComponent
   },
   {
     path: '',
     component: BlogComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/notfound'
   }
 ];
 
@@ -50,7 +56,8 @@ const appRoutes: Routes = [
     AuthComponent,
     BlogComponent,
     SinglepostComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
