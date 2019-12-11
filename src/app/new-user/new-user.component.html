@@ -22,7 +22,7 @@
         </select>
         </div>
         <div formArrayName="hobbies">
-                <p>Vos hobbies</p>
+                <p>Vos sujets de prédilection :</p>
                 <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
                   <input type="text" class="form-control" [formControlName]="i">
                 </div>
